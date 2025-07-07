@@ -29,8 +29,8 @@ Fuente: [Kaggle - Cardiovascular Disease Dataset](https://www.kaggle.com/dataset
 ## Instalación
 
 1. Clona este repositorio:
-```bash
 git clone [DoctorML-Modelo-Predictivo-de-Riesgo-Cardiovascular](https://github.com/LeoNato04/DoctorML-Modelo-Predictivo-de-Riesgo-Cardiovascular)
+```bash
 cd DoctorML
 ```
 
