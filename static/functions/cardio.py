@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score
 
 # Cargar y preprocesar el dataset
 def cargar_modelo():
-    df = pd.read_csv(r'C:\Users\casa\Documents\UNIVERSIDAD\VERANO 2025-0\IA\PROYECTO FINAL\Doctor_ML\data\cardio_train.csv', delimiter=';')
+    df = pd.read_csv('data/cardio_train.csv', delimiter=';')
     df['age'] = (df['age'] / 365).astype(int)
     df = df[(df['ap_hi'] > 0) & (df['ap_lo'] > 0)]
 
