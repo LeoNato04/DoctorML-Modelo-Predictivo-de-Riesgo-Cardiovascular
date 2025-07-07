@@ -67,28 +67,7 @@ El mejor modelo alcanzó:
 
 ## Estructura del proyecto
 
-DoctorML/
-├── data/
-│   └── cardio_train.csv
-├── static/
-│   └── css/
-│   └── functions/
-│   └── graphics/
-│   └── images/
-│   └── js/
-├── templates/
-│   ├── contact.html
-│   ├── health.html
-│   ├── health_c_cardio.html
-│   ├── health_c_cardio_graphics.html
-│   ├── health_c_mama.html
-│   ├── health_c_pulmon.html
-│   ├── index.html
-│   ├── medicine.html
-│   └── news.html
-├── app.py
-├── requirements.txt
-└── README.md
+<pre> ```text DoctorML/ ├── data/ │ └── cardio_train.csv ├── static/ │ ├── css/ │ ├── functions/ │ ├── graphics/ │ ├── images/ │ └── js/ ├── templates/ │ ├── contact.html │ ├── health.html │ ├── health_c_cardio.html │ ├── health_c_cardio_graphics.html │ ├── health_c_mama.html │ ├── health_c_pulmon.html │ ├── index.html │ ├── medicine.html │ └── news.html ├── app.py ├── requirements.txt └── README.md ``` </pre>
 
 ## Licencia
 Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más información.
