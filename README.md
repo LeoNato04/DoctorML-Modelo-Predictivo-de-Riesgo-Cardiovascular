@@ -30,7 +30,7 @@ Fuente: [Kaggle - Cardiovascular Disease Dataset](https://www.kaggle.com/dataset
 
 1. Clona este repositorio:
 ```bash
-git clone [https://github.com/LeoNato04/DoctorML-Modelo-Predictivo-de-Riesgo-Cardiovascular](https://github.com/LeoNato04/DoctorML-Modelo-Predictivo-de-Riesgo-Cardiovascular)
+git clone [DoctorML-Modelo-Predictivo-de-Riesgo-Cardiovascular](https://github.com/LeoNato04/DoctorML-Modelo-Predictivo-de-Riesgo-Cardiovascular)
 cd DoctorML
 ```
 
