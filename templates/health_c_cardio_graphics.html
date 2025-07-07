@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos básicos -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Problemas Cardiovasculares</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/responsive.css">
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="static/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+
+    <!-- Iconos y Favicon -->
+    <link rel="icon" href="static/images/fevicon.png" type="image/gif">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+    <!-- Cargar Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        h2, h3 {
+            color: #343a40;
+        }
+        img {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="logo"><a href="{{ url_for('home') }}"><img src="/static/images/logo.png"></a></div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}">Inicio</a>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="pruebasDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Pruebas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="pruebasDropdown">
+                        <a class="dropdown-item" href="{{ url_for('cardio') }}">Problemas Cardiovasculares</a>
+                        <a class="dropdown-item" href="#">Cáncer de Mama</a>
+                        <a class="dropdown-item" href="#">Cáncer de Pulmón</a>
+                    </div>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('medicina') }}">Medicina</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('noticias') }}">Noticias</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('contacto') }}">Contáctanos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><img src="static/images/search-icon.png"></a>
+                </li>
+            </ul>
+        </div>
+        </nav>
+    </div>
+    
+    <!-- Sección de Gráficos -->
+    <section id="graphics" class="pt-5 pb-4">
+        <div class="container">
+            <h2 class="text-center mt-5 mb-4">Análisis de Datos del Dataset Cardio</h2>
+            <div class="row">
+                <div class="col-md-6 text-center mb-4">
+                    <h3>Distribución de Edad</h3>
+                    <img src="{{ url_for('static', filename='graphics/age.png') }}" alt="Gráfico de Edad" class="img-fluid rounded shadow" onclick="showImageModal(this.src)">
+                    <p>Este gráfico muestra cómo se distribuyen las edades en la población del dataset.</p>
+                </div>
+                <div class="col-md-6 text-center mb-4">
+                    <h3>Distribución de Género</h3>
+                    <img src="{{ url_for('static', filename='graphics/gender.png') }}" alt="Gráfico de Género" class="img-fluid rounded shadow" onclick="showImageModal(this.src)">
+                    <p>Se observa la proporción de hombres y mujeres en el dataset.</p>
+                </div>
+                <div class="col-md-6 text-center mb-4">
+                    <h3>Distribución de Altura</h3>
+                    <img src="{{ url_for('static', filename='graphics/height.png') }}" alt="Gráfico de Altura" class="img-fluid rounded shadow" onclick="showImageModal(this.src)">
+                    <p>La distribución de alturas de la población estudiada.</p>
+                </div>
+                <div class="col-md-6 text-center mb-4">
+                    <h3>Distribución de Peso</h3>
+                    <img src="{{ url_for('static', filename='graphics/weight.png') }}" alt="Gráfico de Peso" class="img-fluid rounded shadow" onclick="showImageModal(this.src)">
+                    <p>Este gráfico ilustra cómo se distribuyen los pesos en el dataset.</p>
+                </div>
+                <div class="col-md-6 text-center mb-4">
+                    <h3>Distribución de Presión Arterial Alta</h3>
+                    <img src="{{ url_for('static', filename='graphics/ap_hi.png') }}" alt="Gráfico de Presión Arterial Alta" class="img-fluid rounded shadow" onclick="showImageModal(this.src)">
+                    <p>Valores de presión arterial sistólica en la población.</p>
+                </div>
+                <div class="col-md-6 text-center mb-4">
+                    <h3>Distribución de Presión Arterial Baja</h3>
+                    <img src="{{ url_for('static', filename='graphics/ap_lo.png') }}" alt="Gráfico de Presión Arterial Baja" class="img-fluid rounded shadow" onclick="showImageModal(this.src)">
+                    <p>Valores de presión arterial diastólica registrados en el dataset.</p>
+                </div>
+                <div class="col-md-6 text-center mb-4">
+                    <h3>Niveles de Colesterol</h3>
+                    <img src="{{ url_for('static', filename='graphics/cholesterol.png') }}" alt="Gráfico de Colesterol" class="img-fluid rounded shadow" onclick="showImageModal(this.src)">
+                    <p>Distribución de los niveles de colesterol en los participantes.</p>
+                </div>
+                <div class="col-md-6 text-center mb-4">
+                    <h3>Niveles de Glucosa</h3>
+                    <img src="{{ url_for('static', filename='graphics/gluc.png') }}" alt="Gráfico de Glucosa" class="img-fluid rounded shadow" onclick="showImageModal(this.src)">
+                    <p>Niveles de glucosa registrados en el dataset.</p>
+                </div>
+                <div class="col-md-6 text-center mb-4">
+                    <h3>Frecuencia de Fumadores</h3>
+                    <img src="{{ url_for('static', filename='graphics/smoke.png') }}" alt="Gráfico de Fumadores" class="img-fluid rounded shadow" onclick="showImageModal(this.src)">
+                    <p>Porcentaje de personas fumadoras en la población analizada.</p>
+                </div>
+                <div class="col-md-6 text-center mb-4">
+                    <h3>Frecuencia de Consumo de Alcohol</h3>
+                    <img src="{{ url_for('static', filename='graphics/alco.png') }}" alt="Gráfico de Consumo de Alcohol" class="img-fluid rounded shadow" onclick="showImageModal(this.src)">
+                    <p>Frecuencia del consumo de alcohol en el dataset.</p>
+                </div>
+                <div class="col-md-6 text-center mb-4">
+                    <h3>Nivel de Actividad Física</h3>
+                    <img src="{{ url_for('static', filename='graphics/active.png') }}" alt="Gráfico de Actividad Física" class="img-fluid rounded shadow" onclick="showImageModal(this.src)">
+                    <p>Niveles de actividad física reportados por los participantes.</p>
+                </div>
+                <div class="col-md-6 text-center mb-4">
+                    <h3>Enfermedades Cardíacas</h3>
+                    <img src="{{ url_for('static', filename='graphics/cardio.png') }}" alt="Gráfico de Enfermedades Cardíacas" class="img-fluid rounded shadow" onclick="showImageModal(this.src)">
+                    <p>Distribución de casos de enfermedades cardíacas en la población.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para Zoom -->
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Vista Ampliada</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="modalImage" src="" alt="Imagen Ampliada" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegación entre páginas -->
+    <div class="text-center my-4">
+        <a href="{{ url_for('cardio') }}" class="btn btn-primary">Página 1</a>
+        <a href="{{ url_for('cardio_graficos') }}" class="btn btn-secondary">Página 2</a>
+    </div>
+
+   <!-- footer section start -->
+   <div class="footer_section layout_padding">
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="footer_logo"><a href="{{ url_for('home') }}"><img src="static/images/footer-logo.png"></a></div>
+                <h1 class="adderss_text">Contáctanos</h1>
+                <div class="map_icon"><img src="static/images/map-icon.png"><span class="paddlin_left_0">Dirección de la empresa</span></div>
+                <div class="map_icon"><img src="static/images/call-icon.png"><span class="paddlin_left_0">+7586656566</span></div>
+                <div class="map_icon"><img src="static/images/mail-icon.png"><span class="paddlin_left_0">contacto@volim.com</span></div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <h1 class="adderss_text">Doctores</h1>
+                <div class="hiphop_text_1">Usamos Machine Learning para nuestras pruebas, pero recomendamos confirmar los resultados con un médico.</div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <h1 class="adderss_text">Enlaces Útiles</h1>
+                <div class="Useful_text">
+                    <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="https://youtu.be/NdNyYcAJQr8?si=0RjvekycaTu1PNr3" target="_blank">¿Qué es Machine Learning?</a></li>
+                    <li><a href="https://youtu.be/Tbv4jm2IJGk?si=Vhv-AMr5VoQOoSF6" target="_blank">¿Qué son enfermedades cardiovasculares?</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <h1 class="adderss_text">Suscríbete</h1>
+                <input type="text" class="Enter_text" placeholder="Ingresa tu Email" name="email">
+                <div class="subscribe_bt"><a href="#">Suscribirse</a></div>
+                <div class="social_icon">
+                    <ul>
+                    <li><a href="#"><img src="static/images/fb-icon.png"></a></li>
+                    <li><a href="#"><img src="static/images/twitter-icon.png"></a></li>
+                    <li><a href="#"><img src="static/images/linkedin-icon.png"></a></li>
+                    <li><a href="#"><img src="static/images/instagram-icon.png"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+       <!-- Javascript files-->
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/jquery-3.0.0.min.js"></script>
+    <script src="static/js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="static/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="static/js/custom.js"></script>
+    <!-- javascript -->
+    <script src="static/js/owl.carousel.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <!-- jQuery y Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        function showImageModal(src) {
+            $('#modalImage').attr('src', src);
+            $('#imageModal').modal('show');
+        }
+    </script>
+</body>
+</html>
